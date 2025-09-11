@@ -1,0 +1,9 @@
+:host {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--primary);
+  color: black;
+  height: 56px;
+  padding: 0 16px;
+}
