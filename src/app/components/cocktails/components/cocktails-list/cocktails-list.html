@@ -1,1 +1,11 @@
-<p>cocktails-list works!</p>
+
+  <h2 class="mb-20">Liste des cocktails</h2>
+  <ul class="mb-20">
+    @for (cocktail of cocktails(); track $index) {
+      <li class="px-12 py-6 my-2 radius">
+        <h3>{{ cocktail.name }}</h3>
+    </li>
+    }
+  </ul>
+<button class="btn  btn-primary">Ajouter un  cocktail</button>
+ 

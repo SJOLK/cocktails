@@ -1,0 +1,5 @@
+li:hover {
+  cursor: pointer;;
+  background-color: var(--light);
+  transition: all 0.4s;
+}

@@ -1,1 +1,12 @@
-<p>cocktail-details works!</p>
+
+  @let c = cocktail();
+  <div>
+    <img [src]="c.imageUrl" alt="Photo du cocktail" />
+  </div>
+  <h3>{{ c.name }}</h3>
+  <p>{{ c.description }}</p>
+  <ul>
+    @for (ingredient of c.ingredients; track $index) {
+      <li>{{ ingredient }}</li>
+    }
+  </ul>

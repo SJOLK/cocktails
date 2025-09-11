@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-flow: column;
+}
+
+img {
+  max-height: 300px;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
