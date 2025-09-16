@@ -85,7 +85,7 @@ src/app
 1. Cloner le projet :
    ```bash
    git clone https://github.com/SJOLK/cocktails.git
-   cd cocktails-app
+   cd cocktails
    ```
 
 2. Installer les dépendances :
