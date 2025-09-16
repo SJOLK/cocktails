@@ -1,59 +1,125 @@
-# Cocktails
+# 🍸 Cocktails Manager
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
+Application Angular permettant la **gestion de recettes de cocktails**.  
+Ce projet a été réalisé dans le cadre d’un travail universitaire (niveau Master 1).
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Fonctionnalités
 
-```bash
-ng serve
+### Vue **Cocktails**
+- Affichage de la liste des cocktails (mock depuis `data.ts`).
+- Recherche par nom.
+- Sélection d’un cocktail → affichage des détails (image, description, ingrédients).
+- Mise en favoris (ajout/retrait) → stocké dans le `localStorage`.
+- Ajout des ingrédients du cocktail au **panier**.
+
+### Vue **Panier**
+- Affiche tous les ingrédients nécessaires aux cocktails choisis.
+- Pas de doublons → compteur par ingrédient.
+- Boutons `+` / `-` pour ajuster les quantités.
+- Suppression d’un ingrédient individuel.
+- Bouton **vider le panier**.
+
+### Vue **Admin**
+- Accessible uniquement aux utilisateurs avec le rôle `admin`.
+- Gestion des cocktails :
+  - Liste avec boutons **Modifier / Supprimer**.
+  - Ajout d’un nouveau cocktail (au moins un ingrédient requis).
+- Gestion des utilisateurs (CRUD) :
+  - Ajout / suppression d’utilisateurs.
+  - Attribution du rôle `admin` ou `user`.
+  - Chaque utilisateur possède sa propre liste de favoris.
+
+### Authentification
+- Gestion simple via un `AuthService` avec `localStorage`.
+- Mode **démo** : possibilité de se connecter/déconnecter comme `user` ou `admin`.
+- L’accès à la page `/admin` est protégé par un guard (`adminGuard`).
+
+---
+
+## 🛠️ Architecture du projet
+
+Organisation type Angular **standalone components** :
+
+```
+src/app
+├── components
+│   ├── cocktails
+│   │   ├── components
+│   │   │   ├── cocktails-list
+│   │   │   └── cocktail-details
+│   │   ├── cocktails.html / .ts / .css
+│   ├── header
+│   ├── footer
+│   ├── panier
+│   └── admin
+├── interfaces
+│   └── cocktail.interface.ts
+├── data
+│   └── data.ts (seed de cocktails)
+├── services
+│   ├── cocktails.service.ts
+│   ├── favorites.service.ts
+│   ├── cart.service.ts
+│   └── auth.service.ts
+├── app.ts          (AppComponent racine)
+├── app.routes.ts   (Routing)
+└── main.ts         (Bootstrap Angular)
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🧩 Technologies
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Angular 17+** (standalone components)
+- **Signals** (`signal`, `computed`) pour la gestion réactive.
+- **LocalStorage** pour la persistance (cocktails, favoris, panier, utilisateurs).
+- **TypeScript** pour le typage.
+- **CSS custom** (mise en page simple et responsive).
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## ▶️ Installation & Exécution
 
-```bash
-ng generate --help
-```
+1. Cloner le projet :
+   ```bash
+   git clone https://github.com/username/cocktails-app.git
+   cd cocktails-app
+   ```
 
-## Building
+2. Installer les dépendances :
+   ```bash
+   npm install
+   ```
 
-To build the project run:
+3. Lancer le serveur de dev :
+   ```bash
+   ng serve -o
+   ```
 
-```bash
-ng build
-```
+4. Ouvrir [http://localhost:4200](http://localhost:4200) dans le navigateur.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 📚 Bonnes pratiques suivies
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Architecture claire (`core`/`features`/`shared` adaptée aux standalone components).
+- Respect des principes **DRY**, **KISS**, **YAGNI**.
+- Utilisation des services pour isoler la logique métier.
+- Réutilisation des composants (ex: `cocktails-list`, `cocktail-details`).
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 📸 Aperçu
 
-For end-to-end (e2e) testing, run:
+- **Cocktails** : liste + détails côte à côte.  
+- **Panier** : ingrédients groupés avec compteurs.  
+- **Admin** : gestion des cocktails et des utilisateurs.
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 👤 Auteur
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Projet réalisé par *[RHANBOURI Omar aka SJOLK]*.  
+Encadré par *[Mickael Cornillon aka dwaps]*.
