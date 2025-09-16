@@ -1,0 +1,73 @@
+/* Admin Component Styles */
+
+.admin-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 32px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.admin-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #2c3e50;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.admin-button {
+    padding: 10px 24px;
+    background: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.admin-button:hover {
+    background: #219150;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #e1e1e1;
+    text-align: left;
+}
+
+.admin-table th {
+    background: #f8f8f8;
+    font-weight: 600;
+}
+
+.admin-table tr:hover {
+    background: #f3f9f6;
+}
+
+@media (max-width: 600px) {
+    .admin-container {
+        padding: 12px;
+    }
+    .admin-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .admin-title {
+        font-size: 1.3rem;
+    }
+}

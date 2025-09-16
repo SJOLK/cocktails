@@ -1,0 +1,25 @@
+<h2 class="panier-title">Liste des ingrédients</h2>
+
+<div *ngIf="keys().length === 0; else list" class="empty">
+  <p>Aucun ingrédient pour le moment.</p>
+</div>
+
+<ng-template #list>
+  <ul class="cart-list">
+    <li *ngFor="let k of keys()" class="cart-item">
+      <span class="item-name">{{ cart.items()[k].name }}</span>
+
+      <div class="item-controls">
+        <button class="btn btn-ghost" (click)="cart.dec(k)">−</button>
+        <span class="count">{{ cart.items()[k].count }}</span>
+        <button class="btn btn-ghost" (click)="cart.inc(k)">＋</button>
+      </div>
+
+      <button class="btn btn-danger btn-small" (click)="cart.remove(k)">Supprimer</button>
+    </li>
+  </ul>
+
+  <div class="actions">
+    <button class="btn btn-danger" (click)="cart.clear()">Vider le panier</button>
+  </div>
+</ng-template>

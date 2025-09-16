@@ -1,0 +1,53 @@
+/* cocktail-form.css */
+
+.cocktail-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cocktail-form label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #7b3f00;
+}
+
+.cocktail-form input,
+.cocktail-form textarea,
+.cocktail-form select {
+    padding: 0.75rem;
+    border: 1px solid #e0c3a0;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #fff;
+    transition: border-color 0.2s;
+}
+
+.cocktail-form input:focus,
+.cocktail-form textarea:focus,
+.cocktail-form select:focus {
+    border-color: #ffb347;
+    outline: none;
+}
+
+.cocktail-form button {
+    background: #ffb347;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.cocktail-form button:hover {
+    background: #ff8800;
+}

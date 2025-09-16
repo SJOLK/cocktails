@@ -1,11 +1,12 @@
-
-  <h2 class="mb-20">Liste des cocktails</h2>
-  <ul class="mb-20">
-    @for (cocktail of cocktails(); track $index) {
-      <li class="px-12 py-6 my-2 radius">
-        <h3>{{ cocktail.name }}</h3>
-    </li>
-    }
-  </ul>
-<button class="btn  btn-primary">Ajouter un  cocktail</button>
- 
+<ul class="mb-20">
+  <li *ngFor="let cocktail of cocktails" class="px-12 py-6 my-2 radius"
+      (click)="select.emit(cocktail)">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <h3>{{ cocktail.name }}</h3>
+      <button class="btn"
+              (click)="$event.stopPropagation(); toggleFav.emit(cocktail.name)">
+        {{ isFav(cocktail.name) ? '★' : '☆' }}
+      </button>
+    </div>
+  </li>
+</ul>

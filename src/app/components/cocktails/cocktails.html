@@ -1,7 +1,32 @@
-<!-- cocktail-list -->
+<div class="cocktails-layout">
+  <!-- LEFT: list -->
+  <section class="left">
+    <h2>Liste des cocktails</h2>
+    <input
+      [ngModel]="query()"
+      (ngModelChange)="query.set($event)"
+      placeholder="Rechercher un cocktail"
+      class="input"
+    />
+    <app-cocktails-list
+      [cocktails]="list()"
+      [isFav]="isFav.bind(this)"
+      (toggleFav)="onToggleFav($event)"
+      (select)="select($event)">
+    </app-cocktails-list>
+  </section>
 
-<app-cocktails-list [cocktails]="cocktails()" />
+  <!-- RIGHT: details -->
+  <section class="right" *ngIf="selected(); else hint">
+    <app-cocktail-details [cocktail]="selected()!"></app-cocktail-details>
+    <button class="btn btn-primary" (click)="addToCart(selected()!)">
+      Ajouter au panier
+    </button>
+  </section>
 
-<!-- cocktail-details -->
-
-<app-cocktail-details [cocktail]="selectedCocktail()" /> 
+  <ng-template #hint>
+    <section class="right hint">
+      <p>Sélectionne un cocktail pour voir les détails.</p>
+    </section>
+  </ng-template>
+</div>

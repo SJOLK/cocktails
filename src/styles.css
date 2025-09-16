@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+/* Reset / base */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f9fafb;
+  color: #111827;
+  line-height: 1.5;
+}
+
+/* Utilities */
+.input {
+  width: 100%;
+  padding: .5rem .75rem;
+  border: 1px solid #d1d5db;
+  border-radius: .5rem;
+  font-size: 0.95rem;
+  outline: none;
+}
+.input:focus {
+  border-color: #126e82;
+  box-shadow: 0 0 0 2px rgba(18, 110, 130, 0.2);
+}
+
+.btn {
+  padding: .45rem .9rem;
+  border-radius: .5rem;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  background: #374151;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+.btn:hover { background: #111827; }
+.btn-primary { background: #126e82; }
+.btn-primary:hover { background: #0f5968; }
+.btn-danger { background: #b91c1c; }
+.btn-danger:hover { background: #7f1d1d; }
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.radius {
+  border: 1px solid #e5e7eb;
+  border-radius: .75rem;
+  padding: .5rem .75rem;
+  background: #fff;
+}

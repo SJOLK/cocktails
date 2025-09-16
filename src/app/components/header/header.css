@@ -1,6 +1,5 @@
 :host {
-  /* layout */
-  position: sticky;    /* stays on top when scrolling */
+  position: sticky;
   top: 0;
   z-index: 50;
 
@@ -8,48 +7,35 @@
   align-items: center;
   justify-content: space-between;
 
-  /* look & feel */
-  background-color: var(--primary, #126e82);
-  color: var(--on-primary, #fff);
-  height: 56px;
-  padding: 0 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  background-color: #126e82;
+  color: #fff;
+  height: 60px;
+  padding: 0 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
 }
 
-/* your title: the first <div> inside the host */
 :host > div {
   font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: .2px;
-  margin-right: auto;             /* pushes the menu to the right */
+  font-size: 1.2rem;
 }
 
-/* your menu: the <ul> you already have */
-:host > ul {
+:host ul {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* links */
 :host a {
   color: inherit;
   text-decoration: none;
   padding: .35rem .5rem;
   border-radius: 6px;
-  transition: background-color .15s ease, color .15s ease;
+  transition: background-color .15s ease;
 }
-:host a:hover,
-:host a:focus-visible {
-  background-color: rgba(255,255,255,.15);
-  outline: none;
-}
+:host a:hover { background-color: rgba(255,255,255,.2); }
 
-/* small screens: stack a bit tighter */
-@media (max-width: 600px) {
-  :host { height: auto; padding: 8px 12px; }
-  :host > ul { gap: 10px; flex-wrap: wrap; }
-  :host > div { font-size: 1rem; }
+.btn {
+  margin-left: 16px;
 }

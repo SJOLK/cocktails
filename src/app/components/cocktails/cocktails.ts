@@ -1,17 +1,45 @@
-import { Component, signal } from '@angular/core';
-import { cocktails } from '../../data/data';
-import { Cocktail } from '../interfaces/cocktail.interface';
-import { CocktailsList } from './components/cocktails-list/cocktails-list';
-import { CocktailDetails } from './components/cocktail-details/cocktail-details';
+import { Component, signal, computed } from '@angular/core';
+import { CommonModule } from '@angular/common';         // *ngIf, etc.
+import { FormsModule } from '@angular/forms';           // [(ngModel)]
+import { CocktailsService } from '../../services/cocktails.service';
+import { FavoritesService } from '../../services/favorites.service';
+import { CartService } from '../../services/cart.service';
+import { Cocktail } from '../../interfaces/cocktail.interface';
 
+// 👉 chemins depuis src/app/components/cocktails/cocktails.ts
+import { CocktailsListComponent } from './components/cocktails-list/cocktails-list';
+import { CocktailDetails } from './components/cocktail-details/cocktail-details';
 
 @Component({
   selector: 'app-cocktails',
-  imports: [CocktailsList, CocktailDetails],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    CocktailsListComponent,
+    CocktailDetails,
+  ],
   templateUrl: './cocktails.html',
-  styleUrl: './cocktails.css',
+  styleUrls: ['./cocktails.css'],
 })
-export class Cocktails {
-  cocktails = signal<Cocktail[]>(cocktails);
-  selectedCocktail = signal<Cocktail>(this.cocktails()[0]);
+export class CocktailsComponent {     // ✅ nomme la classe en *Component*
+  constructor(
+    public cocktailsSvc: CocktailsService,
+    private favs: FavoritesService,
+    private cart: CartService
+  ) {}
+
+  query = signal('');
+  list = computed<Cocktail[]>(() =>
+    this.query().trim()
+      ? this.cocktailsSvc.searchByName(this.query())
+      : this.cocktailsSvc.cocktails()
+  );
+
+  selected = signal<Cocktail | null>(null);
+  select(c: Cocktail) { this.selected.set(c); }
+
+  addToCart(c: Cocktail) { this.cart.addMany(c.ingredients); }
+  onToggleFav = (name: string) => this.favs.toggle(name);
+  isFav = (name: string) => this.favs.isFav(name);
 }

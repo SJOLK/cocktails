@@ -1,0 +1,19 @@
+<div class="add">
+  <input class="input" [(ngModel)]="newUser.name"  placeholder="Nom">
+  <input class="input" [(ngModel)]="newUser.email" placeholder="Email">
+  <select class="input" [(ngModel)]="newUser.role">
+    <option value="user">user</option>
+    <option value="admin">admin</option>
+  </select>
+  <button class="btn" (click)="add()">Ajouter</button>
+</div>
+
+<ul>
+  <li *ngFor="let u of users.users()" class="row">
+    <span>{{ u.name }} — {{ u.email }} — rôle: {{ u.role }}</span>
+    <div>
+      <button class="btn" (click)="users.setRole(u.id, u.role==='admin'?'user':'admin')">Basculer rôle</button>
+      <button class="btn btn-danger" (click)="users.remove(u.id)">Supprimer</button>
+    </div>
+  </li>
+</ul>

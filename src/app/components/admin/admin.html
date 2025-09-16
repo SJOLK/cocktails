@@ -1,0 +1,27 @@
+<div class="layout">
+  <aside class="menu">
+    <button class="btn" (click)="tab.set('list')">liste</button>
+    <button class="btn" (click)="tab.set('new')">nouveau</button>
+  </aside>
+
+  <section class="content">
+    <ng-container *ngIf="tab()==='list'; else create">
+      <h2>Liste des cocktails</h2>
+      <ul class="space-y">
+        <li *ngFor="let c of cocktails.cocktails()" class="row">
+          <span>{{ c.name }}</span>
+          <button class="btn btn-danger" (click)="remove(c.name)">Supprimer</button>
+        </li>
+      </ul>
+    </ng-container>
+
+    <ng-template #create>
+      <h2>Création d’un cocktail</h2>
+      <app-admin-cocktail-form (saved)="tab.set('list')"></app-admin-cocktail-form>
+    </ng-template>
+
+    <hr style="margin:16px 0" />
+    <h2>Users</h2>
+    <app-admin-users-table></app-admin-users-table>
+  </section>
+</div>

@@ -1,14 +1,18 @@
-import { Component, input } from '@angular/core';
-import { Cocktail } from '../../../interfaces/cocktail.interface';
-
-
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Cocktail } from '../../../../interfaces/cocktail.interface';
 
 @Component({
   selector: 'app-cocktails-list',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './cocktails-list.html',
-  styleUrl: './cocktails-list.css',
+  styleUrls: ['./cocktails-list.css']
 })
-export class CocktailsList {
-  cocktails = input.required<Cocktail[]>();
+export class CocktailsListComponent {
+@Input() cocktails: Cocktail[] = [];
+@Input() isFav!: (name: string) => boolean;
+@Output() toggleFav = new EventEmitter<string>();
+@Output() select = new EventEmitter<Cocktail>();
+
 }

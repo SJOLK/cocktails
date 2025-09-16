@@ -1,4 +1,4 @@
-import { Cocktail } from '../components/interfaces/cocktail.interface';
+import { Cocktail } from '../interfaces/cocktail.interface';
 
 export const cocktails : Cocktail[] = [
   {

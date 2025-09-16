@@ -1,7 +1,9 @@
 :host {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: lightslategray;
-    color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #374151;
+  color: #f3f4f6;
+  height: 50px;
+  font-size: 0.85rem;
 }

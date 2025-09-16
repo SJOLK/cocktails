@@ -1,11 +1,28 @@
-:host {
-  display: flex;
-  gap: 24px;
-  padding: 24px;
+/* Two columns: fixed left (list), fluid right (details) */
+.cocktails-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr; /* 👈 set your list width here */
+  gap: 400px;           
+  align-items: start;
+  margin-top: 15px; 
+  margin-left: 30px;
 }
 
-@media screen and (max-width: 820px) {
-  :host {
-    flex-direction: column;
-  }
+/* Left pane (list) */
+.left {
+  position: sticky;          /* stays on screen when scrolling */
+  top: 84px;                 /* adjust to your header height */
+}
+
+/* Right pane (details) */
+.right {
+  min-height: 300px;
+}
+
+/* Optional: hint box styling */
+.right.hint {
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
 }

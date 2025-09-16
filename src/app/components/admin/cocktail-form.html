@@ -1,0 +1,15 @@
+<form (ngSubmit)="submit()" #f="ngForm" class="form">
+  <input [(ngModel)]="model.name" name="name" placeholder="Nom" required class="input" />
+  <input [(ngModel)]="model.imageUrl" name="imageUrl" placeholder="URL de l'image" class="input" />
+  <textarea [(ngModel)]="model.description" name="description" placeholder="Description" class="input"></textarea>
+
+  <div class="ingredients">
+    <div class="row" *ngFor="let _ of ings(); let i = index">
+      <input [(ngModel)]="ings()[i]" name="ing-{{i}}" placeholder="Ingrédient" class="input" />
+      <button class="btn" type="button" (click)="removeLine(i)">Suppr</button>
+    </div>
+    <button class="btn" type="button" (click)="addLine()">+ Ingrédient</button>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Enregistrer</button>
+</form>
