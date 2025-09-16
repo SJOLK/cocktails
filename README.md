@@ -1,7 +1,7 @@
 # 🍸 Cocktails Manager
 
 Application Angular permettant la **gestion de recettes de cocktails**.  
-Ce projet a été réalisé dans le cadre d’un travail universitaire (niveau Master 1).
+Ce projet a été réalisé dans le cadre d’un travail universitaire.
 
 ---
 
